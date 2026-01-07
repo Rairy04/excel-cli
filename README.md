@@ -1,6 +1,11 @@
 # Excel CLI
 
-一个强大且可扩展的 Rust 命令行工具，用于将 Excel 文件转换为多种格式（JSON、CSV 等）。
+[![CI](https://github.com/lihongjie0209/excel-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/lihongjie0209/excel-cli/actions/workflows/ci.yml)
+[![Release](https://github.com/lihongjie0209/excel-cli/actions/workflows/release.yml/badge.svg)](https://github.com/lihongjie0209/excel-cli/actions/workflows/release.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Rust Version](https://img.shields.io/badge/rust-1.70%2B-blue.svg)](https://www.rust-lang.org)
+
+一个强大且可扩展的 Rust 命令行工具，用于将 Excel 文件转换为多种格式（JSON、CSV、SQL、HTML、Markdown、XML、YAML）。
 
 ## ✨ 特性
 
