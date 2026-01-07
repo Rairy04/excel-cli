@@ -98,9 +98,16 @@ jobs:
         if: matrix.target != 'aarch64-unknown-linux-gnu'
         run: cargo build --release --target ${{ matrix.target }}
 
-      - name: Strip binary (Linux and macOS)
-        if: matrix.os != 'windows-latest'
+      - name: Strip binary (non-ARM64-Linux)
+        if: matrix.os != 'windows-latest' && matrix.target != 'aarch64-unknown-linux-gnu'
         run: strip target/${{ matrix.target }}/release/${{ matrix.artifact_name }}
+
+      - name: Strip binary (ARM64 Linux)
+        if: matrix.target == 'aarch64-unknown-linux-gnu'
+        run: |
+          docker run --rm -v $PWD:/project -w /project \
+            ghcr.io/cross-rs/aarch64-unknown-linux-gnu:latest \
+            aarch64-linux-gnu-strip target/aarch64-unknown-linux-gnu/release/excel-cli
 
       - name: Create archive
         shell: bash
