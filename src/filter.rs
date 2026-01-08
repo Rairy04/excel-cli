@@ -142,7 +142,10 @@ impl FilterCondition {
         let operator = FilterOperator::from_str(parts[1])?;
 
         // is_empty 和 is_not_empty 不需要值
-        let value = if matches!(operator, FilterOperator::IsEmpty | FilterOperator::IsNotEmpty) {
+        let value = if matches!(
+            operator,
+            FilterOperator::IsEmpty | FilterOperator::IsNotEmpty
+        ) {
             String::new()
         } else if parts.len() < 3 {
             return Err(ExcelCliError::ExportError(format!(
@@ -152,7 +155,9 @@ impl FilterCondition {
         } else {
             // 支持带引号的值
             let value_part = parts[2..].join(" ");
-            value_part.trim_matches(|c| c == '"' || c == '\'').to_string()
+            value_part
+                .trim_matches(|c| c == '"' || c == '\'')
+                .to_string()
         };
 
         Ok(FilterCondition {
@@ -257,9 +262,7 @@ impl DataFilter {
                 .collect();
 
             if result.is_empty() {
-                return Err(ExcelCliError::ExportError(
-                    "过滤后没有剩余的列".to_string(),
-                ));
+                return Err(ExcelCliError::ExportError("过滤后没有剩余的列".to_string()));
             }
 
             Ok(result)
@@ -313,8 +316,7 @@ mod tests {
         data.add_row(ExcelRow { data: row2 });
 
         // 过滤 Age > 27
-        let filter = DataFilter::new()
-            .with_condition(FilterCondition::parse("Age > 27").unwrap());
+        let filter = DataFilter::new().with_condition(FilterCondition::parse("Age > 27").unwrap());
 
         let filtered = filter.apply(&data).unwrap();
         assert_eq!(filtered.row_count(), 1);
@@ -334,8 +336,7 @@ mod tests {
         data.add_row(ExcelRow { data: row1 });
 
         // 只选择 Name 和 Age
-        let filter = DataFilter::new()
-            .with_select(vec!["Name".to_string(), "Age".to_string()]);
+        let filter = DataFilter::new().with_select(vec!["Name".to_string(), "Age".to_string()]);
 
         let filtered = filter.apply(&data).unwrap();
         assert_eq!(filtered.column_count(), 2);
