@@ -14,9 +14,9 @@
 - 🗄️ **多 SQL 方言**: 支持 MySQL、PostgreSQL、SQLite、SQL Server、Oracle
 - 🔄 **SQL 多模式**: 支持 INSERT、UPDATE、UPSERT/MERGE 语句生成
 - 📄 **模板引擎**: 使用 Tera 模板引擎支持自定义导出格式
-- � **数据过滤**: 支持列选择、列排除和条件过滤
+- 🔧 **数据过滤**: 支持列选择、列排除和条件过滤
 - 📊 **Schema 生成**: 自动生成 CREATE TABLE SQL 语句
-- �🔧 **易于扩展**: 通过实现 `Exporter` trait 轻松添加新格式
+- 🔧 **易于扩展**: 通过实现 `Exporter` trait 轻松添加新格式
 - 📋 **多工作表**: 支持选择特定工作表或列出所有工作表
 - 🏷️ **列名映射**: SQL 导出支持自定义列名映射
 - 💪 **类型安全**: 完善的错误处理和类型定义
