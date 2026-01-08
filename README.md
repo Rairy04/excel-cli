@@ -16,6 +16,7 @@
 - 📄 **模板引擎**: 使用 Tera 模板引擎支持自定义导出格式
 - 🔧 **数据过滤**: 支持列选择、列排除和条件过滤
 - 📊 **Schema 生成**: 自动生成 CREATE TABLE SQL 语句
+- 👁️ **数据预览**: 在命令行中以表格形式快速预览 Excel 数据
 - 🔧 **易于扩展**: 通过实现 `Exporter` trait 轻松添加新格式
 - 📋 **多工作表**: 支持选择特定工作表或列出所有工作表
 - 🏷️ **列名映射**: SQL 导出支持自定义列名映射
@@ -178,6 +179,26 @@ excel-cli convert -i data.xlsx -o output.txt -f template --template my_template.
 ```bash
 excel-cli list-sheets -i data.xlsx
 ```
+
+### 预览 Excel 数据
+
+在命令行中以表格形式预览 Excel 文件内容：
+
+```bash
+# 预览所有数据
+excel-cli preview -i data.xlsx
+
+# 预览指定工作表
+excel-cli preview -i data.xlsx -s "Sheet2"
+
+# 限制显示行数
+excel-cli preview -i data.xlsx -l 10
+
+# 组合使用
+excel-cli preview -i data.xlsx -s "employees" -l 20
+```
+
+预览功能使用美观的表格格式在终端中展示数据，非常适合快速查看 Excel 文件内容而无需打开完整的 Excel 应用程序。
 
 ### 数据过滤
 
@@ -348,6 +369,17 @@ excel-cli list-sheets [OPTIONS]
   -i, --input <INPUT>      Excel 文件路径（必需）
 ```
 
+### `preview` - 预览 Excel 数据
+
+```bash
+excel-cli preview [OPTIONS]
+
+选项:
+  -i, --input <INPUT>      Excel 文件路径（必需）
+  -s, --sheet <SHEET>      工作表名称（可选，默认使用第一个工作表）
+  -l, --limit <LIMIT>      显示的最大行数（可选，默认显示所有行）
+```
+
 ### `formats` - 显示支持的格式
 
 ```bash
@@ -462,6 +494,7 @@ excel-cli/
 - **[serde](https://github.com/serde-rs/serde)** - 序列化/反序列化
 - **[serde_json](https://github.com/serde-rs/json)** - JSON 处理
 - **[csv](https://github.com/BurntSushi/rust-csv)** - CSV 处理
+- **[comfy-table](https://github.com/Nukesor/comfy-table)** - 命令行表格显示
 - **[anyhow](https://github.com/dtolnay/anyhow)** - 错误处理
 - **[thiserror](https://github.com/dtolnay/thiserror)** - 自定义错误类型
 
@@ -481,6 +514,7 @@ done
 ```bash
 # 列出工作表并选择性转换
 excel-cli list-sheets -i data.xlsx
+excel-cli preview -i data.xlsx -s "Sales" -l 5
 excel-cli convert -i data.xlsx -o sales.csv -f csv -s "Sales"
 ```
 

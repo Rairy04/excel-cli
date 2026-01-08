@@ -124,8 +124,7 @@ impl TemplateExporter {
                                 JsonValue::Number((*n as i64).into())
                             } else {
                                 JsonValue::Number(
-                                    serde_json::Number::from_f64(*n)
-                                        .unwrap_or_else(|| 0.into()),
+                                    serde_json::Number::from_f64(*n).unwrap_or_else(|| 0.into()),
                                 )
                             }
                         }
@@ -153,9 +152,7 @@ impl Exporter for TemplateExporter {
 
         // 添加模板
         tera.add_raw_template(&self.template_name, &self.template_content)
-            .map_err(|e| {
-                ExcelCliError::ExportError(format!("模板解析失败: {}", e))
-            })?;
+            .map_err(|e| ExcelCliError::ExportError(format!("模板解析失败: {}", e)))?;
 
         // 创建上下文
         let context = self.create_context(data);

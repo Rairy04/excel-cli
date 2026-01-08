@@ -209,7 +209,8 @@ impl SchemaGenerator {
                 SqlDialect::Oracle => {
                     sql.push_str(&format!(
                         "CREATE TABLE {} (\n",
-                        self.dialect.quote_identifier(&self.table_name.to_uppercase())
+                        self.dialect
+                            .quote_identifier(&self.table_name.to_uppercase())
                     ));
                 }
             }

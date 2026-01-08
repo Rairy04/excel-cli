@@ -1,5 +1,5 @@
-pub mod json;
 pub mod csv;
+pub mod json;
 pub mod sql;
 pub mod template;
 
@@ -10,11 +10,11 @@ pub use sql::{SqlDialect, SqlExporter, SqlMode};
 pub use template::{BuiltinTemplate, TemplateExporter};
 
 /// 导出器 trait，用于定义导出接口
-/// 
+///
 /// 实现此 trait 可以添加新的导出格式
 pub trait Exporter {
     /// 导出数据到指定路径
-    /// 
+    ///
     /// # 参数
     /// * `data` - Excel 数据
     /// * `output_path` - 输出文件路径
@@ -72,61 +72,55 @@ impl ExporterFactory {
                 let dialect_str = config.sql_dialect.as_deref().unwrap_or("mysql");
                 let dialect = SqlDialect::from_str(dialect_str)?;
                 let table_name = config.sql_table.unwrap_or_else(|| "table_name".to_string());
-                
+
                 let mut exporter = SqlExporter::new(dialect, table_name);
-                
+
                 // 设置 SQL 模式
                 if let Some(mode_str) = config.sql_mode {
                     let mode = SqlMode::from_str(&mode_str)?;
                     exporter = exporter.with_mode(mode);
                 }
-                
+
                 // 设置主键
                 if let Some(keys) = config.primary_keys {
                     exporter = exporter.with_primary_keys(keys);
                 }
-                
+
                 // 设置更新列
                 if let Some(cols) = config.update_columns {
                     exporter = exporter.with_update_columns(cols);
                 }
-                
+
                 // 设置列名映射
                 if let Some(mapping) = config.column_mapping {
                     exporter = exporter.with_column_mapping(mapping);
                 }
-                
+
                 Ok(Box::new(exporter))
             }
             "template" => {
                 if let Some(template_path) = config.template_path {
-                    Ok(Box::new(template::TemplateExporter::from_file(&template_path)?))
+                    Ok(Box::new(template::TemplateExporter::from_file(
+                        &template_path,
+                    )?))
                 } else {
                     Err(crate::error::ExcelCliError::ExportError(
                         "Template 格式需要指定 --template 参数".to_string(),
                     ))
                 }
             }
-            "html" | "html-table" => {
-                Ok(Box::new(template::TemplateExporter::from_builtin(
-                    template::BuiltinTemplate::HtmlTable,
-                )))
-            }
-            "markdown" | "md" | "md-table" => {
-                Ok(Box::new(template::TemplateExporter::from_builtin(
-                    template::BuiltinTemplate::MarkdownTable,
-                )))
-            }
-            "xml" => {
-                Ok(Box::new(template::TemplateExporter::from_builtin(
-                    template::BuiltinTemplate::Xml,
-                )))
-            }
-            "yaml" | "yml" => {
-                Ok(Box::new(template::TemplateExporter::from_builtin(
-                    template::BuiltinTemplate::Yaml,
-                )))
-            }
+            "html" | "html-table" => Ok(Box::new(template::TemplateExporter::from_builtin(
+                template::BuiltinTemplate::HtmlTable,
+            ))),
+            "markdown" | "md" | "md-table" => Ok(Box::new(
+                template::TemplateExporter::from_builtin(template::BuiltinTemplate::MarkdownTable),
+            )),
+            "xml" => Ok(Box::new(template::TemplateExporter::from_builtin(
+                template::BuiltinTemplate::Xml,
+            ))),
+            "yaml" | "yml" => Ok(Box::new(template::TemplateExporter::from_builtin(
+                template::BuiltinTemplate::Yaml,
+            ))),
             _ => Err(crate::error::ExcelCliError::UnsupportedFormat(
                 format.to_string(),
             )),
@@ -135,6 +129,8 @@ impl ExporterFactory {
 
     /// 获取所有支持的格式
     pub fn supported_formats() -> Vec<&'static str> {
-        vec!["json", "csv", "sql", "template", "html", "markdown", "xml", "yaml"]
+        vec![
+            "json", "csv", "sql", "template", "html", "markdown", "xml", "yaml",
+        ]
     }
 }

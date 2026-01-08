@@ -250,9 +250,8 @@ fn convert_excel(
     );
 
     // 应用数据过滤
-    let has_filter = select_columns.is_some()
-        || exclude_columns.is_some()
-        || !filter_conditions.is_empty();
+    let has_filter =
+        select_columns.is_some() || exclude_columns.is_some() || !filter_conditions.is_empty();
 
     if has_filter {
         println!("🔍 应用数据过滤...");
@@ -475,8 +474,8 @@ fn generate_schema(
     println!("📊 表名: {}", sql_table);
 
     // 创建 Schema 生成器
-    let generator = SchemaGenerator::new(dialect, sql_table.to_string())
-        .with_if_not_exists(add_if_not_exists);
+    let generator =
+        SchemaGenerator::new(dialect, sql_table.to_string()).with_if_not_exists(add_if_not_exists);
 
     // 设置主键（如果指定）
     let generator = if let Some(pk) = primary_key {
@@ -580,4 +579,3 @@ fn preview_excel(input: &str, sheet_name: Option<&str>, limit: Option<usize>) ->
 
     Ok(())
 }
-
